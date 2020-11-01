@@ -6,13 +6,13 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:29:04 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/10/26 13:02:24 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/10/30 16:04:25 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_init_ptr(int (**ptr)(va_list *))
+void	ft_init_ptr(int (**ptr)(va_list *, t_struct struct1))
 {
 	ptr[0] = ft_va_list_putchar;
 	ptr[1] = ft_va_list_putstr;

@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_va_list_putnbr.c                                :+:      :+:    :+:   */
+/*   ft_check_flag.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/25 18:47:10 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/01 23:43:47 by rkhelif          ###   ########.fr       */
+/*   Created: 2020/10/30 15:04:49 by rkhelif           #+#    #+#             */
+/*   Updated: 2020/11/01 22:48:56 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_va_list_putnbr(va_list *list, t_struct struct1)
+t_struct	ft_check_flag(t_struct struct1, const char *format, int i)
 {
-	int	size;
-	int	nbr;
 	int	count;
 
 	count = 0;
-	nbr = va_arg(*list, int);
-	size = ft_putnbr_size(nbr);
-	while (struct1.minus == 0 && size <= --struct1.width && ++count)
-		(struct1.zero == 1) ? write(1, "0", 1) : write(1, " ", 1);
-	ft_putnbr(nbr);
-	while (struct1.minus == 1 && size <= --struct1.width && ++count)
-		write(1, " ", 1);
-	return (size + count);
+	while (format[i] == '0' || format[i] == '-')
+	{
+		struct1.zero = (format[i] == '0') ? 1 : struct1.zero;
+		struct1.minus = (format[i] == '-') ? 1 : struct1.minus;
+		i++;
+	}
+	while (ft_find_index(format[i], "0123456789") != -1)
+	{
+		count *= 10;
+		count += (format[i] - 48);
+		i++;
+	}
+	struct1.index = ft_find_index(format[i], struct1.tab);
+	struct1.width = count;
+	return (struct1);
 }

@@ -1,46 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/23 18:00:25 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/10/28 14:53:23 by rkhelif          ###   ########.fr       */
+/*   Created: 2020/10/28 14:46:01 by rkhelif           #+#    #+#             */
+/*   Updated: 2020/11/01 22:40:47 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_printf2(const char *format, t_struct struct1, va_list *list, int i)
 {
-	va_list		list;
-	int			i;
-	t_struct	struct1;
+	int	((*ptr[8])(va_list *, t_struct struct1));
 
-	struct1 = ft_init_struct1();
-	i = -1;
-	va_start(list, format);
-	struct1.size = ft_printf2(format, struct1, &list, i);
-	/*while (format[++i])
+	ft_init_ptr(ptr);
+	while (format[++i])
 	{
 		(format[i] != '%') ? ft_putchar(format[i]) : 0;
-		if (format[i] == '%' && format[i + 1] == '%' && ++i != -1)
-		{
+		if (format[i] == '%' && format[i + 1] == '%' && ++i != -1 &&
+		struct1.size++ != -1)
 			ft_putchar('%');
-			struct1.size += 1;
-		}
 		else if (format[i] == '%')
 		{
-			struct1.index = ft_find_index(format[i + 1], struct1.tab);
-			if (struct1.index == -1)
-				return (-1);
-			struct1.size += struct1.ptr[struct1.index](&list);
-			i++;
+			struct1 = ft_check_flag(struct1, format, i + 1);
+			struct1.size += ptr[struct1.index](list, struct1);
+			i += ft_check_flag_size(format, i + 1);
+			struct1.width = 0;
+			struct1.zero = 0;
+			struct1.minus = 0;
 		}
 		else
 			struct1.size += 1;
-	}*/
-	va_end(list);
+	}
 	return (struct1.size);
 }
