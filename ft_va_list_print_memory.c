@@ -6,21 +6,19 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 12:36:02 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/01 23:12:54 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/05 11:33:14 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_va_list_print_memory(va_list *list, t_struct struct1)
+int	ft_va_list_print_memory(va_list *list, t_struct struct1, int count)
 {
 	void	*addr;
 	char	*new;
 	int		size;
 	char	tab[17];
-	int		count;
 
-	count = 0;
 	size = 0;
 	ft_strcat(tab, "0123456789abcdef");
 	addr = va_arg(*list, void *);

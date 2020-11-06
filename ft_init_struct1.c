@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:34:49 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/01 22:42:41 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/02 10:55:12 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ t_struct	ft_init_struct1(void)
 	struct1.width = 0;
 	struct1.zero = 0;
 	struct1.minus = 0;
+	struct1.prec = 0;
+	struct1.p_width = 0;
 	return (struct1);
 }

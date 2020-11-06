@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 17:27:41 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/02 00:48:05 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/06 11:32:33 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@ int	main(int argc, char *argv[])
 
 	(void)argc;
 	(void)argv;
-	num3 = -12345;
+	num3 = 10;
 	i = -1;
-	num = ft_printf("pp %% %-45X %-2s %2c\n", num3, "salut", 'c');
-	num2 = printf("pp %% %-45X %-2.10s %2c\n", num3, "salut", 'c');
-	printf("%10sa\n", "c");
+	num = ft_printf("%.*da\n", 20, num3);
+	num2 = printf("%.*da\n", 20, num3);
 	printf("num = %d\n", num);
 	printf("num = %d\n", num2);
 	return (0);

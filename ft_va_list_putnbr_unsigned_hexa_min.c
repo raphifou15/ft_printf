@@ -6,27 +6,33 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 11:40:11 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/02 00:16:06 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/05 18:31:02 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_va_list_putnbr_unsigned_hexa_min(va_list *list, t_struct struct1)
+int	ft_va_list_putnbr_unsigned_hexa_min(va_list *list, t_struct struct1,
+	int count)
 {
 	int				size;
 	char			tab[17];
 	unsigned int	nbr;
-	int				count;
 
-	count = 0;
 	ft_strcat(tab, "0123456789abcdef");
 	nbr = va_arg(*list, unsigned int);
-	size = ft_putnbr_hexa_unsigned_size(nbr);
-	while (struct1.minus == 0 && size <= --struct1.width && ++count)
+	size = (nbr == 0 && struct1.prec == 1) ? 0 :
+		ft_putnbr_hexa_unsigned_size(nbr);
+	struct1.zero = (struct1.prec == 1) ? 0 : struct1.zero;
+	while (struct1.minus == 0 && size <= --struct1.width &&
+		struct1.p_width <= struct1.width && ++count)
 		(struct1.zero == 1) ? write(1, "0", 1) : write(1, " ", 1);
-	ft_putnbr_hexa_unsigned(nbr, tab);
-	while (struct1.minus == 1 && size <= --struct1.width && ++count)
+	while (size <= --struct1.p_width && ++count)
+		ft_putchar('0');
+	(size == 0) ? 0 : ft_putnbr_hexa_unsigned(nbr, tab);
+	struct1.p_width = count;
+	while (struct1.minus == 1 && (size + struct1.p_width) <= --struct1.width &&
+		++count)
 		write(1, " ", 1);
 	return (size + count);
 }

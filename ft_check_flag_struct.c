@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_va_list_putchar.c                               :+:      :+:    :+:   */
+/*   ft_check_flag_struct.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 21:18:06 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/05 11:26:53 by rkhelif          ###   ########.fr       */
+/*   Created: 2020/11/06 10:44:13 by rkhelif           #+#    #+#             */
+/*   Updated: 2020/11/06 10:47:38 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_va_list_putchar(va_list *list, t_struct struct1, int count)
+t_struct	ft_check_flag_struct(const char *format, int i, t_struct struct1)
 {
-	unsigned char	c;
-	unsigned char	d;
-
-	while (struct1.minus == 0 && 1 <= --struct1.width && ++count)
-		write(1, " ", 1);
-	c = va_arg(*list, int);
-	d = (unsigned char)c;
-	write(1, &d, 1);
-	while (struct1.minus == 1 && 1 <= --struct1.width && ++count)
-		write(1, " ", 1);
-	return (1 + count);
+	struct1.zero = (format[i - 1] == '0') ? 1 : struct1.zero;
+	struct1.minus = (format[i - 1] == '-') ? 1 : struct1.minus;
+	return (struct1);
 }
