@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 17:27:41 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/06 11:32:33 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/07 01:06:54 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 int	main(int argc, char *argv[])
 {
-	int	num;
-	int	num2;
-	int	i;
-	int num3;
+	//int		num;
+	int		num2;
+	int		num3;
+	int		t;
+	char	c;
 
 	(void)argc;
 	(void)argv;
+	c = 'a';
+	t = 50;
 	num3 = 10;
-	i = -1;
-	num = ft_printf("%.*da\n", 20, num3);
-	num2 = printf("%.*da\n", 20, num3);
-	printf("num = %d\n", num);
+	//num = ft_printf("%%");
+	num2 = printf("%5%");
+	//printf("num = %d\n", num);
 	printf("num = %d\n", num2);
 	return (0);
 }

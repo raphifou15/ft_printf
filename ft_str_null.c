@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_va_list_putstr.c                                :+:      :+:    :+:   */
+/*   ft_str_null.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 00:28:31 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/06 15:13:01 by rkhelif          ###   ########.fr       */
+/*   Created: 2020/11/06 14:41:05 by rkhelif           #+#    #+#             */
+/*   Updated: 2020/11/06 18:23:49 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_va_list_putstr(va_list *list, t_struct struct1, int count)
+int	ft_str_null(t_struct struct1, char *str, int count)
 {
-	char	*str;
 	int		i;
 	int		size;
 
-	str = va_arg(*list, char *);
-	if (str == NULL)
-		return (ft_str_null(struct1, "(null)", count));
 	i = -1;
 	while (str[++i])
 		;
@@ -31,9 +27,15 @@ int	ft_va_list_putstr(va_list *list, t_struct struct1, int count)
 	i = -1;
 	while (struct1.prec == 0 && str[++i])
 		write(1, &str[i], 1);
-	while (struct1.prec == 1 && ++i != -1 && --size > -1)
+	while (struct1.width != 0 && size >= 6 && struct1.prec == 1 && ++i != -1 &&
+	i < 6)
 		write(1, &str[i], 1);
-	while (struct1.minus == 1 && i <= --struct1.width && ++count)
+	while (struct1.minus == 0 && struct1.prec == 1 && size < 6 && ++i != -1 &&
+	--size > 0 && --struct1.width >= -1)
 		write(1, " ", 1);
+	size = (size < 6) ? 0 : size;
+	while (struct1.minus == 1 && size <= --struct1.width && ++count)
+		write(1, " ", 1);
+	i = (i == -1) ? 0 : i;
 	return (i + count);
 }

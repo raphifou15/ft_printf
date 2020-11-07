@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 18:47:10 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/06 11:33:40 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/07 00:18:20 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	ft_va_list_putnbr(va_list *list, t_struct struct1, int count)
 	size = (nbr == 0 && struct1.prec == 1) ? 0 : ft_putnbr_size(nbr);
 	struct1.zero = (struct1.prec == 1) ? 0 : struct1.zero;
 	(struct1.zero == 1 && nbr < 0) ? write(1, "-", 1) : 0;
-	nbr = (struct1.zero == 1 && nbr < 0) ? nbr *= -1 : nbr;
+	if (struct1.zero == 1 && nbr < 0)
+		nbr *= -1;
 	(nbr < 0) ? struct1.p_width++ : 0;
 	while (struct1.minus == 0 && size <= --struct1.width &&
 		struct1.p_width <= struct1.width && ++count)
