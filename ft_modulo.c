@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_struct1.c                                  :+:      :+:    :+:   */
+/*   ft_modulo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 09:34:49 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/07 20:59:35 by rkhelif          ###   ########.fr       */
+/*   Created: 2020/11/07 21:07:07 by rkhelif           #+#    #+#             */
+/*   Updated: 2020/11/07 21:24:43 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_struct	ft_init_struct1(void)
+int	ft_modulo(t_struct struct1, int i)
 {
-	t_struct	struct1;
+	int	count;
 
-	ft_strcat(struct1.tab, "cspdiuxX%");
-	struct1.size = 0;
-	struct1.width = 0;
-	struct1.zero = 0;
-	struct1.minus = 0;
-	struct1.prec = 0;
-	struct1.p_width = 0;
-	return (struct1);
+	count = 0;
+	while (struct1.minus == 0 && struct1.zero == 0 && --struct1.width > 0 &&
+	++count)
+		ft_putchar(' ');
+	while (struct1.minus == 0 && struct1.zero == 1 && --struct1.width > 0 &&
+	++count)
+		ft_putchar('0');
+	ft_putchar('%');
+	i++;
+	while (struct1.minus == 1 && --struct1.width > 0 && ++count)
+		ft_putchar(' ');
+	return (count + i);
 }

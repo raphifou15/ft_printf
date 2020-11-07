@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 14:46:01 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/06 00:48:45 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/07 21:32:55 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,11 @@ int	ft_printf2(const char *format, t_struct struct1, va_list *list, int i)
 	while (format[++i])
 	{
 		(format[i] != '%') ? ft_putchar(format[i]) : 0;
-		if (format[i] == '%' && format[i + 1] == '%' && ++i != -1 &&
-		struct1.size++ != -1)
-			ft_putchar('%');
-		else if (format[i] == '%')
+		if (format[i] == '%')
 		{
 			struct1 = ft_check_flag(struct1, format, i + 1, list);
-			struct1.size += ptr[struct1.index](list, struct1, 0);
+			struct1.size += (struct1.index == 8) ? ft_modulo(struct1, 0) :
+			ptr[struct1.index](list, struct1, 0);
 			i += ft_check_flag_size(format, i + 1);
 			struct1.width = 0;
 			struct1.zero = 0;

@@ -6,7 +6,7 @@
 #    By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/07 00:02:58 by rkhelif           #+#    #+#              #
-#    Updated: 2020/11/07 00:22:20 by rkhelif          ###   ########.fr        #
+#    Updated: 2020/11/07 21:38:49 by rkhelif          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS = ft_addr_null.c \
 		ft_init_ptr.c \
 		ft_init_struct1.c \
 		ft_init_tab.c \
+		ft_modulo.c \
 		ft_print_addr.c \
 		ft_printf2.c \
 		ft_printf.c \
