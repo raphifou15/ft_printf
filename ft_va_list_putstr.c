@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:28:31 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/06 15:13:01 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/08 02:55:43 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ int	ft_va_list_putstr(va_list *list, t_struct struct1, int count)
 	i = -1;
 	while (str[++i])
 		;
-	i = (i > struct1.p_width && struct1.prec == 1) ? struct1.p_width : i;
-	size = i;
-	while (struct1.minus == 0 && i <= --struct1.width && ++count)
+	size = (i > struct1.p_width && struct1.prec == 1) ? struct1.p_width : i;
+	while (struct1.minus == 0 && struct1.zero == 0 && size <= --struct1.width &&
+	++count)
 		write(1, " ", 1);
+	while (struct1.minus == 0 && struct1.zero == 1 && size <= --struct1.width &&
+	++count)
+		write(1, "0", 1);
 	i = -1;
 	while (struct1.prec == 0 && str[++i])
 		write(1, &str[i], 1);
