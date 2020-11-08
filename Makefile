@@ -6,7 +6,7 @@
 #    By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/07 00:02:58 by rkhelif           #+#    #+#              #
-#    Updated: 2020/11/07 21:38:49 by rkhelif          ###   ########.fr        #
+#    Updated: 2020/11/08 16:28:46 by rkhelif          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS = ft_addr_null.c \
 		ft_putnbr_unsigned_size.c \
 		ft_size_addr.c \
 		ft_strcat.c \
+		ft_strlen.c \
 		ft_str_null.c \
 		ft_va_list_print_memory.c \
 		ft_va_list_putchar.c \

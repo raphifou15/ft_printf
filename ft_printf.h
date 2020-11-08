@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 17:30:21 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/07 21:23:29 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/08 16:24:09 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_struct
 	int		size;
 	int		prec;
 	int		p_width;
+	int		prec_star;
 }				t_struct;
 
 t_struct		ft_check_flag(t_struct struct1, const char *format, int i,
@@ -67,4 +68,5 @@ t_struct		ft_check_flag_struct(const char *format, int i,
 int				ft_str_null(t_struct struc1, char *str, int count);
 int				ft_addr_null(t_struct struct1, char *str, int count);
 int				ft_modulo(t_struct struct1, int i);
+int				ft_strlen(char *str);
 #endif

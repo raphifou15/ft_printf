@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:04:49 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/08 15:41:19 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/08 16:35:27 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ t_struct	ft_check_flag(t_struct struct1, const char *format, int i,
 		count = ft_count(format, count, i - 1);
 	struct1.width = (count != 0) ? count : struct1.width;
 	count = 0;
-	if (format[i] == '.' && ++i)
-		struct1.prec = 1;
+	struct1.prec = (format[i] == '.' && ++i) ? 1 : struct1.prec;
 	struct1.p_width = (struct1.prec == 1 && format[i] == '*') ?
 		va_arg(*list, int) : struct1.p_width;
 	(struct1.prec == 1 && format[i] == '*') ? ++i : 0;
-	struct1.p_width *= (struct1.p_width < 0) ? -1 : 1;
+	struct1.prec_star = (struct1.p_width < 0) ? struct1.p_width * -1 : 0;
+	struct1.p_width = (struct1.p_width < 0) ? 0 : struct1.p_width;
 	while (struct1.prec == 1 && ft_find_index(format[i], "0123456789") != -1 &&
 		++i)
 		count = ft_count(format, count, i - 1);
