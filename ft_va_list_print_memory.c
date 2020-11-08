@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 12:36:02 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/06 23:41:05 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/08 13:49:45 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_va_list_print_memory(va_list *list, t_struct struct1, int count)
 	ft_strcat(tab, "0123456789abcdef");
 	addr = va_arg(*list, void *);
 	if (addr == NULL)
-		return (ft_addr_null(struct1, "(nil)", 0));
+		return (ft_addr_null(struct1, "0x0", 0));
 	new = (char *)addr;
 	size = ft_size_addr((long)new, tab);
 	size += 2;
