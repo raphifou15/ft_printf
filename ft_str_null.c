@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:41:05 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/06 18:23:49 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/08 02:16:50 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,19 @@ int	ft_str_null(t_struct struct1, char *str, int count)
 	i = -1;
 	while (str[++i])
 		;
-	i = (i > struct1.p_width && struct1.prec == 1) ? struct1.p_width : i;
-	size = i;
-	while (struct1.minus == 0 && i <= --struct1.width && ++count)
-		write(1, " ", 1);
+	printf("i = %d\n", i);
+	size = (struct1.prec == 1 && struct1.p_width < i) ? struct1.p_width : i;
 	i = -1;
-	while (struct1.prec == 0 && str[++i])
-		write(1, &str[i], 1);
-	while (struct1.width != 0 && size >= 6 && struct1.prec == 1 && ++i != -1 &&
-	i < 6)
-		write(1, &str[i], 1);
-	while (struct1.minus == 0 && struct1.prec == 1 && size < 6 && ++i != -1 &&
-	--size > 0 && --struct1.width >= -1)
-		write(1, " ", 1);
-	size = (size < 6) ? 0 : size;
-	while (struct1.minus == 1 && size <= --struct1.width && ++count)
-		write(1, " ", 1);
-	i = (i == -1) ? 0 : i;
+	printf("size = %d\n", size);
+	while (struct1.minus == 0 && struct1.zero == 0 && size <= --struct1.width &&
+	++count)
+		ft_putchar(' ');
+	while (struct1.minus == 0 && struct1.zero == 1 && size <= --struct1.width &&
+	++count)
+		ft_putchar('0');
+	while (str[++i] && --size > -1)
+		ft_putchar(str[i]);
+	while (struct1.minus == 1 && i <= --struct1.width && ++count)
+		ft_putchar(' ');
 	return (i + count);
 }
