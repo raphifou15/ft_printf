@@ -6,12 +6,11 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 18:47:10 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/09 16:02:04 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/09 16:04:14 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	ft_va_list_putnbr(va_list *list, t_struct struct1, int count)
 {
