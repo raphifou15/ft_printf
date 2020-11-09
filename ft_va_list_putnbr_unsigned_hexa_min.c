@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 11:40:11 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/10 00:45:07 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/10 00:49:33 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	ft_va_list_putnbr_unsigned_hexa_min(va_list *list, t_struct struct1,
 		(struct1.zero == 1) ? write(1, "0", 1) : write(1, " ", 1);
 	while (size <= --struct1.p_width && ++count)
 		ft_putchar('0');
-	(struct1.width == 0) ? write(1, "10", 2) : 0;
-	size += (struct1.width == 0) ? 1 : 0;
 	(size == 0) ? 0 : ft_putnbr_hexa_unsigned(nbr, tab);
 	struct1.p_width = count;
 	while (struct1.minus == 1 && (size + struct1.p_width) <= --struct1.width &&
