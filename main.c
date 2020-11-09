@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 17:27:41 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/09 16:00:46 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/09 22:28:54 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 	t = 50;
 	num3 = 10;
 	//num = ft_printf("%%");
-	num2 = ft_printf("%*.i", -1, 0);
+	num2 = ft_printf("Vy4t%018.*u", -5, -2147483647);
 	//printf("num = %d\n", num);
 	printf("\nnum = %d\n", num2);
 	return (0);
