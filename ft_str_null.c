@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 14:41:05 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/08 02:27:17 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/09 16:39:00 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	ft_str_null(t_struct struct1, char *str, int count)
 	i = -1;
 	while (str[++i])
 		;
-	size = (struct1.prec == 1 && struct1.p_width < i) ? struct1.p_width : i;
+	size = (struct1.prec == 1 && struct1.p_width < i &&
+	struct1.prec_star == 0) ? struct1.p_width : i;
 	i = -1;
 	while (struct1.minus == 0 && struct1.zero == 0 && size <= --struct1.width &&
 	++count)

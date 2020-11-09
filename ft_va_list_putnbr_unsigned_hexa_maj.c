@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 12:56:00 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/05 18:36:03 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/09 16:28:06 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_va_list_putnbr_unsigned_hexa_maj(va_list *list, t_struct struct1,
 
 	ft_strcat(tab, "0123456789ABCDEF");
 	nbr = va_arg(*list, unsigned int);
-	size = (nbr == 0 && struct1.prec == 1) ? 0 :
-		ft_putnbr_hexa_unsigned_size(nbr);
+	size = (nbr == 0 && struct1.prec == 1 && struct1.prec_star == 0) ?
+	0 : ft_putnbr_hexa_unsigned_size(nbr);
 	struct1.zero = (struct1.prec == 1) ? 0 : struct1.zero;
 	while (struct1.minus == 0 && size <= --struct1.width &&
 		struct1.p_width <= struct1.width && ++count)
