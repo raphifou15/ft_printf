@@ -6,14 +6,13 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 17:30:21 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/09 01:39:13 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/09 15:43:57 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
@@ -69,4 +68,5 @@ int				ft_str_null(t_struct struc1, char *str, int count);
 int				ft_addr_null(t_struct struct1, char *str, int count);
 int				ft_modulo(t_struct struct1, int i);
 int				ft_strlen(char *str);
+int				ft_display_nbr_0(int nbr);
 #endif

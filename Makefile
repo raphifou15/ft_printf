@@ -6,7 +6,7 @@
 #    By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/07 00:02:58 by rkhelif           #+#    #+#              #
-#    Updated: 2020/11/08 16:28:46 by rkhelif          ###   ########.fr        #
+#    Updated: 2020/11/09 16:03:10 by rkhelif          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = ft_addr_null.c \
 		ft_check_flag_size.c \
 		ft_check_flag_struct.c \
 		ft_count.c \
+		ft_display_nbr_0.c \
 		ft_find_index.c \
 		ft_init_ptr.c \
 		ft_init_struct1.c \
