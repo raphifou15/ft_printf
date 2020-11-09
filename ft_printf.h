@@ -6,7 +6,7 @@
 /*   By: rkhelif <rkhelif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 17:30:21 by rkhelif           #+#    #+#             */
-/*   Updated: 2020/11/08 16:24:09 by rkhelif          ###   ########.fr       */
+/*   Updated: 2020/11/09 01:39:13 by rkhelif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ int				ft_va_list_putnbr_unsigned_hexa_maj(va_list *list,
 void			ft_init_ptr(int (**ptr)(va_list *, t_struct struct1,
 				int count));
 void			ft_putchar(char c);
-void			ft_print_addr(long c, char *tab);
+void			ft_print_addr(unsigned long long c, char *tab);
 void			ft_putnbr(int nbr);
 void			ft_putnbr_unsigned(unsigned int nbr);
 void			ft_putnbr_hexa_unsigned(unsigned int nbr, char *tab);
 int				ft_putnbr_unsigned_size(unsigned int nbr);
 int				ft_putnbr_size(int nbr);
 int				ft_find_index(char c, char *tab);
-int				ft_size_addr(long c, char *tab);
+int				ft_size_addr(unsigned long long c, char *tab);
 int				ft_putnbr_hexa_unsigned_size(unsigned int nbr);
 int				ft_count(const char *format, int count, int i);
 t_struct		ft_check_flag_struct(const char *format, int i,
